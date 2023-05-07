@@ -21,6 +21,7 @@ public class NewsDatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_SUBTITLE = "subtitle";
     private static final String COLUMN_DATE = "date";
 
+    private static final String CONTENT_DATE = "content";
     public NewsDatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -32,7 +33,8 @@ public class NewsDatabaseHelper extends SQLiteOpenHelper {
                 + COLUMN_IMAGE + " INTEGER, "
                 + COLUMN_TITLE + " TEXT, "
                 + COLUMN_SUBTITLE + " TEXT, "
-                + COLUMN_DATE + " TEXT)";
+                + COLUMN_DATE + " TEXT, "
+                + CONTENT_DATE + " TEXT)";
         db.execSQL(CREATE_TABLE_NEWS);
     }
 
@@ -50,6 +52,7 @@ public class NewsDatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_TITLE, news.getTitle());
         values.put(COLUMN_SUBTITLE, news.getSubtitle());
         values.put(COLUMN_DATE, news.getDate());
+        values.put(CONTENT_DATE, news.getContent());
         db.insert(TABLE_NEWS, null, values);
         db.close();
     }
@@ -68,8 +71,9 @@ public class NewsDatabaseHelper extends SQLiteOpenHelper {
                 int titleIndex = cursor.getColumnIndex(COLUMN_TITLE);
                 int subtitleIndex = cursor.getColumnIndex(COLUMN_SUBTITLE);
                 int dateIndex = cursor.getColumnIndex(COLUMN_DATE);
+                int contentIndex = cursor.getColumnIndex(CONTENT_DATE);
 
-                if (imageIndex == -1 || titleIndex == -1 || subtitleIndex == -1 || dateIndex == -1){
+                if (imageIndex == -1 || titleIndex == -1 || subtitleIndex == -1 || dateIndex == -1 || contentIndex == -1){
                     return null;
                 }
 
@@ -77,7 +81,8 @@ public class NewsDatabaseHelper extends SQLiteOpenHelper {
                         cursor.getInt(imageIndex),
                         cursor.getString(titleIndex),
                         cursor.getString(subtitleIndex),
-                        cursor.getString(dateIndex)
+                        cursor.getString(dateIndex),
+                        cursor.getString(contentIndex)
                 );
                 newsList.add(news);
             } while (cursor.moveToNext());
@@ -98,8 +103,32 @@ public class NewsDatabaseHelper extends SQLiteOpenHelper {
             values.put(COLUMN_TITLE, news.getTitle());
             values.put(COLUMN_SUBTITLE, news.getSubtitle());
             values.put(COLUMN_DATE, news.getDate());
+            values.put(CONTENT_DATE, news.getContent());
             db.insert(TABLE_NEWS, null, values);
         }
         db.close();
     }
+
+    public void replaceNewsList(List<News> newsList) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        // 删除所有现有行
+        db.delete(TABLE_NEWS, null, null);
+
+        // 插入新的 News 列表
+        ContentValues values;
+        for (News news : newsList) {
+            values = new ContentValues();
+            values.put(COLUMN_IMAGE, news.getImage());
+            values.put(COLUMN_TITLE, news.getTitle());
+            values.put(COLUMN_SUBTITLE, news.getSubtitle());
+            values.put(COLUMN_DATE, news.getDate());
+            values.put(CONTENT_DATE, news.getContent());
+            db.insert(TABLE_NEWS, null, values);
+        }
+
+        db.close();
+    }
+
+
 }

@@ -47,6 +47,7 @@
                 android:padding="@dimen/spacing_large">
 
                 <TextView
+                    android:id="@+id/article_view_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Fusce Aliquam Blandit? Urna Quis Pulvinar. Donec Luctus Tincidunt eu Condimentum"
@@ -55,6 +56,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/article_view_subtitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_large"
@@ -62,21 +64,6 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                     android:textColor="@color/grey_90"
                     app:fontFamily="sans-serif-medium" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginBottom="@dimen/spacing_large"
-                    android:layout_marginTop="@dimen/spacing_large"
-                    android:background="@color/grey_20" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:lineSpacingExtra="@dimen/spacing_medium"
-                    android:text="@string/lorem_ipsum"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                    android:textColor="@color/grey_80" />
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -96,6 +83,7 @@
                     android:textColor="@color/grey_40" />
 
                 <TextView
+                    android:id="@+id/article_view_content"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_large"
@@ -104,24 +92,6 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                     android:textColor="@color/grey_80" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_large"
-                    android:lineSpacingExtra="@dimen/spacing_medium"
-                    android:text="@string/medium_lorem_ipsum"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/grey_80"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_large"
-                    android:lineSpacingExtra="@dimen/spacing_medium"
-                    android:text="@string/long_lorem_ipsum"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                    android:textColor="@color/grey_80" />
 
             </LinearLayout>
 

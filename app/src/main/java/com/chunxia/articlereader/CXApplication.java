@@ -2,28 +2,17 @@ package com.chunxia.articlereader;
 
 import android.app.Application;
 
-import com.chunxia.articlereader.model.DataGenerator;
-import com.chunxia.articlereader.model.News;
-import com.chunxia.articlereader.model.NewsDatabaseHelper;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.chunxia.articlereader.model.NewsHelper;
+
 
 public class CXApplication extends Application {
 
     @Override
     public void onCreate() {
         super.onCreate();
-        initNewsDatabase();
+        NewsHelper.initNewsDatabaseFromServer(this, 20);
     }
 
-
-    private void initNewsDatabase() {
-        NewsDatabaseHelper dbHelper = new NewsDatabaseHelper(this);
-        List<News> allNews = dbHelper.getAllNews();
-        if (allNews == null || allNews.size() == 0) {
-            dbHelper.insertAllNews(DataGenerator.getNewsData(this, 10));
-        }
-    }
 
 }

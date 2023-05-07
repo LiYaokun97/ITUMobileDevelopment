@@ -70,7 +70,7 @@ public class DataGenerator {
         return items;
     }
 
-    private static int getRandomIndex(int max) {
+    public static int getRandomIndex(int max) {
         return r.nextInt(max - 1);
     }
 }

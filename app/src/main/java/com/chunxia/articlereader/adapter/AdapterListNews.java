@@ -42,6 +42,11 @@ public class AdapterListNews extends RecyclerView.Adapter<RecyclerView.ViewHolde
         this.layout_id = layout_id;
     }
 
+    public void setItems(List<News> items) {
+        this.items = items;
+        notifyDataSetChanged();
+    }
+
     public class OriginalViewHolder extends RecyclerView.ViewHolder {
         public ImageView image;
         public TextView title;
