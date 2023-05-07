@@ -21,7 +21,6 @@ import java.util.List;
 
 public class ListNewsCard extends AppCompatActivity {
 
-    private View parent_view;
 
     private RecyclerView recyclerView;
     private AdapterListNews mAdapter;
@@ -30,7 +29,6 @@ public class ListNewsCard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_news_card);
-        parent_view = findViewById(android.R.id.content);
 
         initToolbar();
         initComponent();
@@ -68,4 +66,5 @@ public class ListNewsCard extends AppCompatActivity {
             }
         });
     }
+
 }

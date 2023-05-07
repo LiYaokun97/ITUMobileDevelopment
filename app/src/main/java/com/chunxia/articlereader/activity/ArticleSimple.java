@@ -1,8 +1,7 @@
 package com.chunxia.articlereader.activity;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
-import android.view.MenuItem;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
