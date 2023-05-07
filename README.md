@@ -12,11 +12,7 @@ This app has two pages:
 2. News details page: The news details page provides the news content, but due to API limitations, only a portion of the news content can be obtained (this is not a bug), so you may see something like [+1000 chars].
 
 ## The Concepts My app uses
-- some MutableLiveData
-  The data in the two pages are all stored in LiveData.
-- ConstraintLayout
-  The news card are implemented in ConstraintLayout.
-- an internal SQLite database
-  Data are stored in SQLite database.
-- some networking (Http communication)
-  Fetching news data from api.
+- some MutableLiveData:  The data in the two pages are all stored in LiveData.
+- ConstraintLayout:  The news card are implemented in ConstraintLayout.
+- an internal SQLite database:  Data are stored in SQLite database.
+- some networking (Http communication):  Fetching news data from api.
