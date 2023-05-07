@@ -14,6 +14,7 @@ import com.chunxia.articlereader.R;
 import com.chunxia.articlereader.adapter.AdapterListNews;
 import com.chunxia.articlereader.model.DataGenerator;
 import com.chunxia.articlereader.model.News;
+import com.chunxia.articlereader.model.NewsDatabaseHelper;
 import com.chunxia.articlereader.tools.Tools;
 
 
@@ -51,7 +52,8 @@ public class ListNewsCard extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
-        List<News> items = DataGenerator.getNewsData(this, 10);
+        NewsDatabaseHelper dbHelper = new NewsDatabaseHelper(this);
+        List<News> items = dbHelper.getAllNews();
 
         //set data and list adapter
         mAdapter = new AdapterListNews(this, items, R.layout.item_news_card2);

@@ -1,6 +1,5 @@
 package com.chunxia.articlereader.activity;
 
-import android.content.res.Configuration;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;

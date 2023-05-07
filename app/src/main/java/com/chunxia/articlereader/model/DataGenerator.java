@@ -3,8 +3,6 @@ package com.chunxia.articlereader.model;
 import android.content.Context;
 import android.content.res.TypedArray;
 
-
-
 import com.chunxia.articlereader.R;
 
 import java.util.ArrayList;
@@ -16,7 +14,6 @@ import java.util.Random;
 public class DataGenerator {
 
     private static Random r = new Random();
-
 
     public static List<String> getStringsMedium(Context ctx) {
         List<String> items = new ArrayList<>();
