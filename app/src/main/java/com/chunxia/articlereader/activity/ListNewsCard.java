@@ -56,7 +56,7 @@ public class ListNewsCard extends AppCompatActivity {
         List<News> items = DataGenerator.getNewsData(this, 10);
 
         //set data and list adapter
-        mAdapter = new AdapterListNews(this, items, R.layout.item_news_card);
+        mAdapter = new AdapterListNews(this, items, R.layout.item_news_card2);
         recyclerView.setAdapter(mAdapter);
 
         // on item list clicked
@@ -68,5 +68,4 @@ public class ListNewsCard extends AppCompatActivity {
             }
         });
     }
-
 }

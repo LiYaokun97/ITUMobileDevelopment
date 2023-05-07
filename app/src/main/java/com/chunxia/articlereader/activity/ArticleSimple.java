@@ -1,7 +1,6 @@
 package com.chunxia.articlereader.activity;
 
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -30,14 +29,4 @@ public class ArticleSimple extends AppCompatActivity {
         Tools.setSystemBarLight(this);
     }
 
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            finish();
-        } else {
-            Toast.makeText(getApplicationContext(), item.getTitle() + " clicked", Toast.LENGTH_SHORT).show();
-        }
-        return super.onOptionsItemSelected(item);
-    }
 }
