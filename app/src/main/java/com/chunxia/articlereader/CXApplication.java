@@ -11,7 +11,6 @@ public class CXApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        NewsHelper.initNewsDatabaseFromServer(this, 20);
     }
 
 

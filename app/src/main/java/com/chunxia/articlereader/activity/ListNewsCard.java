@@ -20,6 +20,7 @@ import com.chunxia.articlereader.adapter.AdapterListNews;
 import com.chunxia.articlereader.model.News;
 import com.chunxia.articlereader.model.NewsDatabaseHelper;
 import com.chunxia.articlereader.model.ListNewsActivityViewModel;
+import com.chunxia.articlereader.model.NewsHelper;
 import com.chunxia.articlereader.tools.Tools;
 
 
@@ -60,13 +61,17 @@ public class ListNewsCard extends AppCompatActivity {
             }
         });
 
-        new Handler().postDelayed(new Runnable() {
+        new Thread(new Runnable() {
             @Override
             public void run() {
-                listNewsActivityViewModel.setNewsList(dbHelper.getAllNews());
+                NewsHelper.initNewsDatabaseFromServer(ListNewsCard.this, 20, new Runnable() {
+                    @Override
+                    public void run() {
+                        listNewsActivityViewModel.postNewsList(dbHelper.getAllNews());
+                    }
+                });
             }
-        }, 3000);
-
+        }).start();
     }
 
     private void initToolbar() {

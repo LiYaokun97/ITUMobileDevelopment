@@ -21,4 +21,9 @@ public class ListNewsActivityViewModel extends ViewModel {
         newsListLiveData.setValue(newsList);
     }
 
+    public void postNewsList(List<News> newsList) {
+        newsListLiveData.postValue(newsList);
+    }
+
+
 }

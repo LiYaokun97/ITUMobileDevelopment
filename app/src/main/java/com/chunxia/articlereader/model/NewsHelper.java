@@ -25,7 +25,7 @@ public class NewsHelper {
         }
     }
 
-    public static void initNewsDatabaseFromServer(Context context, int count) {
+    public static void initNewsDatabaseFromServer(Context context, int count, Runnable onSuccess) {
         NewsDatabaseHelper dbHelper = new NewsDatabaseHelper(context);
 
         NewsClientApi.getNews(new NewsApiClient.ArticlesResponseCallback() {
@@ -41,6 +41,7 @@ public class NewsHelper {
                     arrayList.add(new News(image, title, subtitle, getCurrentDateTime(), content));
                 }
                 dbHelper.replaceNewsList(arrayList);
+                onSuccess.run();
             }
 
             @Override
